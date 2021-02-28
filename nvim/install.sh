@@ -1,13 +1,22 @@
 sudo apt update -y
-sudo apt install python3-pip python3-neovim nodejs npm -y
-sudo npm i -g bash-language-server
+sudo apt install fuse libfuse2 ack-grep python3-pip python3-neovim nodejs npm -y
+pip3 install neovim
 
 curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
-wait(2)
-
+chmod +x nvim.appimage
 ./nvim.appimage --appimage-extract
 sudo mv squashfs-root /usr/share/neovim
 sudo ln -s /usr/share/neovim/AppRun /usr/bin/nvim
+
+mkdir -p ~/.config
 cp -R ./nvim ~/.config
- ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+sudo npm i -g bash-language-server
 rm -rf nvim.appimage
+
+echo Install nvim plugins:
+echo :PlugInstall
+echo :UpdateRemotePlugins
+echo :PlugUpdate
+
