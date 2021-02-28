@@ -1,0 +1,17 @@
+[Desktop Entry]
+Comment=Mountain Wallpaper
+Encoding=UTF-8
+Keywords=Desktop;Workspace;Appearance;Look and Feel;Logout;Lock;Suspend;Shutdown;Hibernate;
+Name=Mountain Djordje
+Type=Service
+
+X-KDE-ServiceTypes=Plasma/LookAndFeel
+X-KDE-ParentApp=
+X-KDE-PluginInfo-Author=djordje
+X-KDE-PluginInfo-Category=
+X-KDE-PluginInfo-Email=djordje.tanaskovic1998@gmail.com
+X-KDE-PluginInfo-License=GPLv2+
+X-KDE-PluginInfo-Name=MountainDjordje
+X-KDE-PluginInfo-Version=1.0
+X-KDE-PluginInfo-Website=
+X-Plasma-MainScript=defaults
