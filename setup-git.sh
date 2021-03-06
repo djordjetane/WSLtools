@@ -1,28 +1,24 @@
-#!/bin/bash
+#! /bin/bash
 
 # Install
-sudo apt update && apt install git -y
+sudo apt update
+sudo apt install git git-flow xclip -y
 
 # Setup ssh
-ssh-keygen -t ed25519 -C "djordje.tanaskovic1998@gmail.com"
-eval `ssh-agent -s`
-ssh-add ~/.ssh/id_ed25519
+if [ -f ~/.ssh/id_ed25519 ]
+then
+  echo "~/.ssh/id_ed25519 exists"
+else
+  ssh-keygen -t ed25519 -C "djordje.tanaskovic1998@gmail.com"
+  eval `ssh-agent -s`
+  sudo ssh-add ~/.ssh/id_ed25519
+fi
  
 # Add to GitHub
-clip.exe < ~/.ssh/id_ed25519.pub
+xclip -selection clipboard < ~/.ssh/id_ed25519.pub
 echo Content of file id_ed25519 is copied to clipboard
 echo Add it to Github - https://github.com/settings/keys
-
-read -p "Press button [Y/n]: " -n 1 -r
-
-if [[ $REPLY =~ ^[Nn]$ ]]
-then
-  echo "Abort."
-  exit(1)
-else
-  echo ""
-fi
-
+sensible-browser https://github.com/settings/keys > /dev/null
 
 # User configuration
 EMAIL="djordje.tanaskovic1998@gmail.com"
@@ -31,9 +27,9 @@ NAME="djordjetane"
 read -p \
 "Email: djordje.tanaskovic1998@gmail.com
 Username: djordjetane
-Do you want to change? (Y/n): " -n 1 -r
+Do you want to change? (y/N): " -n 1 -r
 
-if [[ $REPLY =~ ^[Nn]$ ]]
+if [[ $REPLY =~ ^[Yy]$ ]]
 then
 	
 	MAILREGEX=[a-zA-Z0-9][a-zA-Z0-9\.1?#]+@[a-z]+\.[a-z]+ 
@@ -65,6 +61,7 @@ then
         echo "Username has invalid characters"
       fi        
     done
+fi
 
 git config --global user.email "$EMAIL"
 git config --global user.name "$NAME"

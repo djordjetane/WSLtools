@@ -1,5 +1,5 @@
 sudo apt update -y
-sudo apt install fuse libfuse2 ack-grep python3-pip python3-neovim nodejs npm -y
+sudo apt install curl git fuse libfuse2 ack-grep python3-pip python3-neovim nodejs npm -y
 pip3 install neovim
 
 curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage

@@ -2,8 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/djordje/.oh-my-zsh"
-export DISPLAY=$(ipconfig.exe | grep -e 'IPv4' | grep -oP '192.168.0.\d\d?'):0
+export ZSH="/home/$USER/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
