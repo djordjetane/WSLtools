@@ -1,12 +1,18 @@
 #!/bin/bash
 
+if [ $USER = "root" ]
+then
+  echo "Don't run this script as root!"
+  exit 1
+fi
+
 # Install
-sudo apt update && apt install git -y
+sudo apt update && apt install git git-flow -y
 
 # Setup ssh
-ssh-keygen -t ed25519 -C "djordje.tanaskovic1998@gmail.com"
+sudo ssh-keygen -t ed25519 -C "djordje.tanaskovic1998@gmail.com"
 eval `ssh-agent -s`
-ssh-add ~/.ssh/id_ed25519
+sudo ssh-add ~/.ssh/id_ed25519
  
 # Add to GitHub
 clip.exe < ~/.ssh/id_ed25519.pub
@@ -65,6 +71,7 @@ then
         echo "Username has invalid characters"
       fi        
     done
+fi
 
 git config --global user.email "$EMAIL"
 git config --global user.name "$NAME"
@@ -89,3 +96,5 @@ else
   fi
 fi
 
+# Aliases
+git config --global alias.hist "log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short"
