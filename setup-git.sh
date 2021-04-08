@@ -7,7 +7,8 @@ then
 fi
 
 # Install
-sudo apt update && apt install git git-flow -y
+sudo apt update
+sudo apt install git git-flow -y
 
 # Setup ssh
 sudo ssh-keygen -t ed25519 -C "djordje.tanaskovic1998@gmail.com"
@@ -24,7 +25,7 @@ read -p "Press button [Y/n]: " -n 1 -r
 if [[ $REPLY =~ ^[Nn]$ ]]
 then
   echo "Abort."
-  exit(1)
+  exit 1
 else
   echo ""
 fi
