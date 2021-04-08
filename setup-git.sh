@@ -40,7 +40,7 @@ read -p \
 Username: djordjetane
 Do you want to change? (Y/n): " -n 1 -r
 
-if [[ $REPLY =~ ^[Nn]$ ]]
+if [[ $REPLY =~ ^[Yy]$ ]]
 then
 	
 	MAILREGEX=[a-zA-Z0-9][a-zA-Z0-9\.1?#]+@[a-z]+\.[a-z]+ 
