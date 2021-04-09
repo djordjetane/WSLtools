@@ -11,7 +11,7 @@ sudo apt update
 sudo apt install git git-flow -y
 
 # Setup ssh
-sudo ssh-keygen -t ed25519 -C "djordje.tanaskovic1998@gmail.com"
+ssh-keygen -t ed25519 -C "djordje.tanaskovic1998@gmail.com"
 eval `ssh-agent -s`
 sudo ssh-add ~/.ssh/id_ed25519
  
