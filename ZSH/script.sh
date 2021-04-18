@@ -1,6 +1,6 @@
 sudo apt update && sudo apt install zsh fonts-powerline -y
 sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-mv agnoster.zsh-theme ~/.oh-my-zsh/themes
+mv agnoster-custom.zsh-theme ~/.oh-my-zsh/themes
 mv .zshrc ~
 
 echo "1) Set fonts from Ubuntu->Properties->Font->\"ubuntu mono derivative powerline\""
