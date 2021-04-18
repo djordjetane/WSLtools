@@ -1,12 +1,19 @@
 #!/bin/bash
 
+if [ $USER = "root" ]
+then
+  echo "Don't run this script as root!"
+  exit 1
+fi
+
 # Install
-sudo apt update && apt install git -y
+sudo apt update
+sudo apt install git git-flow -y
 
 # Setup ssh
 ssh-keygen -t ed25519 -C "djordje.tanaskovic1998@gmail.com"
 eval `ssh-agent -s`
-ssh-add ~/.ssh/id_ed25519
+sudo ssh-add ~/.ssh/id_ed25519
  
 # Add to GitHub
 clip.exe < ~/.ssh/id_ed25519.pub
@@ -18,7 +25,7 @@ read -p "Press button [Y/n]: " -n 1 -r
 if [[ $REPLY =~ ^[Nn]$ ]]
 then
   echo "Abort."
-  exit(1)
+  exit 1
 else
   echo ""
 fi
@@ -33,7 +40,7 @@ read -p \
 Username: djordjetane
 Do you want to change? (Y/n): " -n 1 -r
 
-if [[ $REPLY =~ ^[Nn]$ ]]
+if [[ $REPLY =~ ^[Yy]$ ]]
 then
 	
 	MAILREGEX=[a-zA-Z0-9][a-zA-Z0-9\.1?#]+@[a-z]+\.[a-z]+ 
@@ -65,6 +72,7 @@ then
         echo "Username has invalid characters"
       fi        
     done
+fi
 
 git config --global user.email "$EMAIL"
 git config --global user.name "$NAME"
@@ -89,3 +97,5 @@ else
   fi
 fi
 
+# Aliases
+git config --global alias.hist "log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short"
