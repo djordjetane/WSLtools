@@ -8,6 +8,7 @@ fi
 
 # Getting requirements
 sudo apt update -y
+curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
 sudo apt install git curl fuse libfuse2 ack-grep python3-pip python3-neovim nodejs npm -y
 python3 -m pip install neovim
 sudo npm install -g neovim
