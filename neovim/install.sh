@@ -6,11 +6,13 @@ then
 fi
 
 
-# Getting requirements
-sudo apt update -y
-curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
-sudo apt install git curl fuse libfuse2 ack-grep python3-pip python3-neovim nodejs npm -y
-python3 -m pip install neovim
+# getting requirements
+sudo apt update
+sudo apt install -qq -y git curl fuse libfuse2 ack-grep python3 python3-pip python3-pyx python3-jedi
+curl -fssl https://deb.nodesource.com/setup_lts.x | sudo -E bash -
+sudo apt install -qq -y nodejs npm
+#sudo apt install -qq -y python3-neovim
+python3 -m pip install pynvim neovim
 sudo npm install -g neovim
 
 
@@ -18,6 +20,7 @@ sudo npm install -g neovim
 curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
 chmod +x nvim.appimage
 ./nvim.appimage --appimage-extract
+test -d /usr/share/neovim && sudo rm -r /usr/share/neovim
 sudo mv squashfs-root /usr/share/neovim
 sudo ln -s /usr/share/neovim/AppRun /usr/bin/nvim
 
@@ -37,5 +40,5 @@ rm -rf nvim.appimage
 
 
 # Plugins installation
-nvim -c "PlugInstall" -c "UpdateRemotePlugins"
+nvim -c "PlugInstall" -c "UpdateRemotePlugins" -c "CocInstall coc-python"
 

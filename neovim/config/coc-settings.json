@@ -1,6 +1,4 @@
 {
-  /* "coc.preferences.hoverTarget": "echo", */
-  /* "coc.preferences.enableFloatHighlight": false, */
   "coc.preferences.formatOnType": true,
   "coc.preferences.formatOnSaveFiletypes": ["go", "javascript", "typescript", "json", "jsonc"],
   "prettier.printWidth": 160,
@@ -8,8 +6,8 @@
   "codeLens.enable": true,
   "diagnostic.virtualText": true,
   "diagnostic.checkCurrentLine": true,
-  "git.addGBlameToVirtualText": true,
   "signature.target": "echo",
+  "snippets.ultisnips.enable": false,
   "snippets.extends": {
     "javascriptreact": ["javascript"],
     "typescript": ["javascript"]
@@ -21,7 +19,6 @@
     "<C-c>": "do:exit"
   },
   "eslint.autoFixOnSave": true,
-  "eslint.filetypes": ["javascript", "typescript", "javascriptreact"],
   "languageserver": {
     "gopls": {
       "command": "gopls",
@@ -53,4 +50,3 @@
     }
   }
 }
-
