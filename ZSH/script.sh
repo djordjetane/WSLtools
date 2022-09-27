@@ -1,7 +1,7 @@
 sudo apt update && sudo apt install zsh fonts-powerline -y
 sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-mv agnoster-custom.zsh-theme ~/.oh-my-zsh/themes
-mv .zshrc ~
+cp agnoster-custom.zsh-theme ~/.oh-my-zsh/themes
+cp zshrc $HOME/.zshrc
 
 echo "1) Set fonts from Ubuntu->Properties->Font->\"ubuntu mono derivative powerline\""
 echo "2) Run powershell script from Windows"
