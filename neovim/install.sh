@@ -23,8 +23,8 @@ sudo ln -s /usr/share/neovim/AppRun /usr/bin/nvim
 
 
 # Configuration and plugins
-mkdir -p ~/.config
-cp -R ./nvim ~/.config
+mkdir -p ~/.config/nvim 2>>/dev/null
+cp -R ./config/* ~/.config/nvim/
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 
